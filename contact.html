@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Unknown Coder | Contact - Om Yadav | Java FullStack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0a0a0a 0%, #0a0a2a 100%);
+            --bg-color: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-color: #ffffff;
+            --text-muted: #bbb;
+            --border-color: rgba(0, 229, 255, 0.2);
+            --header-bg: rgba(10, 10, 10, 0.95);
+            --primary-accent: #00e5ff;
+            --gradient-accent: linear-gradient(135deg, #00e5ff, #00ff88);
+            --input-bg: rgba(255, 255, 255, 0.05);
+        }
+        [data-theme="light"] {
+            --bg-gradient: linear-gradient(135deg, #f4f6f9 0%, #e2e8f0 100%);
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #1a1a1a;
+            --text-muted: #4a5568;
+            --border-color: rgba(0, 180, 216, 0.3);
+            --header-bg: rgba(244, 246, 249, 0.95);
+            --primary-accent: #00b4d8;
+            --input-bg: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-gradient); color: var(--text-color); line-height: 1.6; transition: background 0.5s, color 0.3s; overflow-x: hidden; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; position: sticky; top: 0; background: var(--header-bg); backdrop-filter: blur(10px); z-index: 100; }
+        .logo { font-size: 28px; font-weight: bold; background: var(--gradient-accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        nav { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+        nav a { color: var(--text-color); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: var(--primary-accent); }
+        .theme-toggle { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-color); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .theme-toggle:hover { border-color: var(--primary-accent); color: var(--primary-accent); transform: scale(1.05); }
+        .download-cv { background: var(--gradient-accent); color: #000 !important; padding: 8px 20px; border-radius: 25px; font-weight: bold; transition: transform 0.3s; }
+        .download-cv:hover { transform: translateY(-3px); box-shadow: 0 0 15px rgba(0,229,255,0.6); }
+        .hero { padding: 60px 8% 40px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .hero-badge { display: inline-block; background: rgba(0, 229, 255, 0.15); padding: 8px 20px; border-radius: 30px; font-size: 12px; color: var(--primary-accent); letter-spacing: 1px; margin-bottom: 30px; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero h1 span { background: var(--gradient-accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero p { color: var(--text-muted); max-width: 600px; margin: 0 auto; min-height: 30px; }
+        .typewriter-cursor { display: inline-block; width: 3px; background-color: var(--primary-accent); margin-left: 4px; animation: blink 0.8s infinite; }
+        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+        .contact-section { padding: 20px 8% 60px; max-width: 1200px; margin: 0 auto; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background: var(--card-bg); border-radius: 30px; padding: 40px; border: 1px solid var(--border-color); }
+        .contact-info h2 { font-size: 32px; margin-bottom: 20px; background: var(--gradient-accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .contact-info > p { color: var(--text-muted); margin-bottom: 30px; }
+        .contact-details { list-style: none; margin-bottom: 30px; }
+        .contact-details li { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; color: var(--text-muted); }
+        .contact-details li i { width: 40px; height: 40px; background: rgba(0,229,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-accent); }
+        .contact-details li strong { display: block; font-size: 14px; color: var(--primary-accent); }
+        .social-links { display: flex; gap: 15px; margin-top: 30px; }
+        .social-links a { width: 45px; height: 45px; background: rgba(0,229,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-color); font-size: 20px; transition: all 0.3s; }
+        .social-links a:hover { background: var(--primary-accent); color: #000; transform: translateY(-5px); }
+        .contact-form { background: var(--input-bg); padding: 30px; border-radius: 20px; border: 1px solid var(--border-color); }
+        .contact-form h3 { font-size: 24px; margin-bottom: 20px; color: var(--primary-accent); }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 14px 18px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; color: var(--text-color); font-size: 14px; font-family: inherit; transition: all 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-accent); box-shadow: 0 0 0 3px rgba(0,229,255,0.1); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+         .liquid-btn {
+            position: relative;
+            padding: 14px 36px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            background: rgba(0, 229, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 229, 255, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .liquid-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00e5ff, #00ff88);
+            z-index: -1;
+            transition: 0.5s;
+            border-radius: 30px;
+        }
+        .liquid-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 140%;
+            height: 280%;
+            background: #020208;
+            border-radius: 42% 38% 44% 40%;
+            transform: translate(-50%, -115%) rotate(0deg);
+            transition: transform 0.8s ease;
+            z-index: -1;
+        }
+        [data-theme="light"] .liquid-btn::after { background: #f0f4f8; }
+        .liquid-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.45);
+            color: #05050f;
+        }
+        .liquid-btn:hover::after { transform: translate(-50%, -50%) rotate(360deg); background: transparent; }
+        .liquid-btn-outline {
+            background: transparent;
+            border: 2px solid #00e5ff;
+            color: #00e5ff;
+        }
+        .liquid-btn-outline::before { opacity: 0; }
+        .liquid-btn-outline:hover { color: #05050f; border-color: transparent; }
+        .liquid-btn-outline:hover::before { opacity: 1; } .map-section { margin-top: 50px; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); }
+        .map-section iframe { width: 100%; height: 300px; border: none; }
+        .cta-section { margin-top: 60px; padding: 50px; background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(0,255,136,0.03)); border-radius: 20px; text-align: center; border: 1px solid var(--border-color); }
+        .cta-section h3 { font-size: 28px; margin-bottom: 15px; color: var(--primary-accent); }
+        .cta-btn { background: var(--gradient-accent); padding: 12px 35px; border-radius: 30px; text-decoration: none; color: #000; font-weight: bold; display: inline-block; transition: transform 0.3s; }
+        .cta-btn:hover { transform: translateY(-3px); }
+        footer { padding: 40px 8%; text-align: center; border-top: 1px solid var(--border-color); background: var(--header-bg); margin-top: 40px; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--primary-accent); }
+        footer p { color: #666; font-size: 14px; }
+        .toast-message { position: fixed; bottom: 30px; right: 30px; background: var(--gradient-accent); color: #000; padding: 12px 24px; border-radius: 50px; font-weight: bold; z-index: 1000; transform: translateX(400px); transition: transform 0.3s; }
+        .toast-message.show { transform: translateX(0); }
+        @media (max-width: 991px) { .contact-container { grid-template-columns: 1fr; gap: 30px; padding: 25px; } }
+        @media (max-width: 768px) { header { padding: 15px 20px; flex-direction: column; gap: 15px; } nav { gap: 15px; } .hero, .contact-section { padding: 30px 20px; } .hero h1 { font-size: 32px; } }
+    </style>
+</head>
+<body data-theme="dark">
+
+<header>
+    <div class="logo">Unknown Coder</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="active">Contact</a>
+        <button class="theme-toggle" id="globalThemeToggle"><i class="fas fa-moon"></i></button>
+        <a href="contact.html" class="download-cv">Book A Call</a>
+    </nav>
+</header>
+
+<section class="hero" data-aos="fade-up">
+    <div class="hero-badge">GET IN TOUCH</div>
+    <h1>Contact <span>Me</span></h1>
+    <p id="typewriterContact"></p>
+</section>
+
+<section class="contact-section">
+    <div class="contact-container" data-aos="fade-up">
+        <div class="contact-info">
+            <h2>Let's Connect</h2>
+            <p>I'm always excited to work on new projects and collaborate with innovative minds. Whether you have a question, a project idea, or just want to say hello — feel free to reach out!</p>
+            <ul class="contact-details">
+                <li><i class="fas fa-envelope"></i><div><strong>Email</strong><span>codewithom99@gmail.com</span></div></li>
+                <li><i class="fas fa-phone-alt"></i><div><strong>Phone</strong><span>+91 9689182064</span></div></li>
+                <li><i class="fas fa-map-marker-alt"></i><div><strong>Location</strong><span>India, Earth</span></div></li>
+            </ul>
+            <div class="social-links"><a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
+        </div>
+        <div class="contact-form">
+            <h3>Send Me a Message</h3>
+            <form id="contactForm">
+                <div class="form-group"><input type="text" id="name" placeholder="Your Name" required></div>
+                <div class="form-group"><input type="email" id="email" placeholder="Your Email" required></div>
+                <div class="form-group"><input type="text" id="subject" placeholder="Subject"></div>
+                <div class="form-group"><textarea id="message" placeholder="Your Message..." required></textarea></div>
+                <button type="submit" class="liquid-btn">Send Message →</button>
+            </form>
+        </div>
+    </div>
+    <div class="map-section" data-aos="fade-up"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15000000!2d70.000000!3d22.000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4c6d5b6e3b9d!2sIndia!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe></div>
+    <div class="cta-section" data-aos="fade-up"><h3>Let's Build Something Great Together</h3><p>Available for freelance projects, full-time roles, and tech consultations.</p><a href="#" class="liquid-btn" id="quickHireBtn">Hire Me Now →</a></div>
+</section>
+
+<footer><div class="footer-links"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="skills.html">Skills</a> | <a href="projects.html">Projects</a> | <a href="services.html">Services</a> | <a href="contact.html">Contact</a></div><p>Unknown Coder. © 2026 Om Yadav. All rights reserved.</p></footer>
+
+<div id="toastMsg" class="toast-message">✓ Message Sent Successfully!</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('globalThemeToggle');
+    const savedTheme = localStorage.getItem('globalTheme') || 'dark';
+    if (savedTheme === 'light') { root.setAttribute('data-theme', 'light'); themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; }
+    else { root.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; }
+    themeBtn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        if (current === 'light') { root.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; localStorage.setItem('globalTheme', 'dark'); }
+        else { root.setAttribute('data-theme', 'light'); themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; localStorage.setItem('globalTheme', 'light'); }
+    });
+
+    const strings = ["Let's connect and create something amazing together.", "Available for freelance & full-time opportunities.", "Drop a message — I'll reply within 24 hours."];
+    let sIdx = 0, cIdx = 0, deleting = false;
+    const target = document.getElementById('typewriterContact');
+    function runTypewriter() {
+        const full = strings[sIdx];
+        if (deleting) { target.innerHTML = full.substring(0, cIdx - 1) + '<span class="typewriter-cursor"></span>'; cIdx--; }
+        else { target.innerHTML = full.substring(0, cIdx + 1) + '<span class="typewriter-cursor"></span>'; cIdx++; }
+        let speed = deleting ? 30 : 60;
+        if (!deleting && cIdx === full.length) { speed = 2000; deleting = true; }
+        else if (deleting && cIdx === 0) { deleting = false; sIdx = (sIdx + 1) % strings.length; speed = 400; }
+        setTimeout(runTypewriter, speed);
+    }
+    AOS.init({ duration: 800, once: true, offset: 100 });
+    setTimeout(runTypewriter, 500);
+
+    const toast = document.getElementById('toastMsg');
+    function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 3000); }
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value, email = document.getElementById('email').value, msg = document.getElementById('message').value;
+        if (!name || !email || !msg) { showToast('❌ Please fill all required fields!'); return; }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) { showToast('❌ Please enter a valid email address!'); return; }
+        showToast('✓ Message Sent Successfully! I\'ll get back to you soon.');
+        document.getElementById('contactForm').reset();
+    });
+    document.getElementById('quickHireBtn').addEventListener('click', (e) => { e.preventDefault(); document.querySelector('.contact-container').scrollIntoView({ behavior: 'smooth' }); document.getElementById('name').focus(); });
+</script>
+</body>
+</html>

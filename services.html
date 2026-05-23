@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Unknown Coder| My Services - Om Yadav | Java FullStack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0a0a0a 0%, #0a0a2a 100%);
+            --bg-color: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-color: #ffffff;
+            --text-muted: #bbb;
+            --border-color: rgba(0, 229, 255, 0.2);
+            --header-bg: rgba(10, 10, 10, 0.95);
+            --primary-accent: #00e5ff;
+            --gradient-accent: linear-gradient(135deg, #00e5ff, #00ff88);
+        }
+        [data-theme="light"] {
+            --bg-gradient: linear-gradient(135deg, #f4f6f9 0%, #e2e8f0 100%);
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #1a1a1a;
+            --text-muted: #4a5568;
+            --border-color: rgba(0, 180, 216, 0.3);
+            --header-bg: rgba(244, 246, 249, 0.95);
+            --primary-accent: #00b4d8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-gradient); color: var(--text-color); line-height: 1.6; transition: background 0.5s, color 0.3s; overflow-x: hidden; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; position: sticky; top: 0; background: var(--header-bg); backdrop-filter: blur(10px); z-index: 100; }
+        .logo { font-size: 28px; font-weight: bold; background: var(--gradient-accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        nav { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+        nav a { color: var(--text-color); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: var(--primary-accent); }
+        .theme-toggle { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-color); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .theme-toggle:hover { border-color: var(--primary-accent); color: var(--primary-accent); transform: scale(1.05); }
+        .download-cv { background: var(--gradient-accent); color: #000 !important; padding: 8px 20px; border-radius: 25px; font-weight: bold; transition: transform 0.3s; }
+        .download-cv:hover { transform: translateY(-3px); box-shadow: 0 0 15px rgba(0,229,255,0.6); }
+        .hero { padding: 60px 8% 40px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .hero-badge { display: inline-block; background: rgba(0, 229, 255, 0.15); padding: 8px 20px; border-radius: 30px; font-size: 12px; color: var(--primary-accent); letter-spacing: 1px; margin-bottom: 30px; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero h1 span { background: var(--gradient-accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero p { color: var(--text-muted); max-width: 600px; margin: 0 auto; min-height: 30px; }
+        .typewriter-cursor { display: inline-block; width: 3px; background-color: var(--primary-accent); margin-left: 4px; animation: blink 0.8s infinite; }
+        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+        .services-section { padding: 20px 8% 60px; max-width: 1200px; margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .service-card { background: var(--card-bg); backdrop-filter: blur(5px); border-radius: 20px; padding: 35px 30px; transition: transform 0.4s, border-color 0.3s; border: 1px solid rgba(0,229,255,0.15); }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--primary-accent); background: rgba(0,229,255,0.05); }
+        .service-icon { font-size: 48px; margin-bottom: 20px; }
+        .service-card h3 { font-size: 24px; margin-bottom: 15px; color: var(--primary-accent); }
+        .service-card > p { color: var(--text-muted); margin-bottom: 25px; line-height: 1.7; }
+        .service-features { list-style: none; border-top: 1px solid var(--border-color); padding-top: 20px; }
+        .service-features li { color: var(--text-muted); font-size: 14px; padding: 8px 0; display: flex; align-items: center; gap: 10px; }
+        .service-features li i { color: var(--primary-accent); font-size: 12px; }
+        .cta-section { margin-top: 60px; padding: 50px; background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(0,255,136,0.03)); border-radius: 20px; text-align: center; border: 1px solid var(--border-color); }
+        .cta-section h3 { font-size: 28px; margin-bottom: 15px; color: var(--primary-accent); }
+        .cta-section p { color: var(--text-muted); margin-bottom: 25px; }
+        .cta-btn { background: var(--gradient-accent); padding: 12px 35px; border-radius: 30px; text-decoration: none; color: #000; font-weight: bold; display: inline-block; transition: transform 0.3s; }
+        .cta-btn:hover { transform: translateY(-3px); }
+        footer { padding: 40px 8%; text-align: center; border-top: 1px solid var(--border-color); background: var(--header-bg); margin-top: 40px; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--primary-accent); }
+        footer p { color: #666; font-size: 14px; }
+        @media (max-width: 768px) { header { padding: 15px 20px; flex-direction: column; gap: 15px; } nav { gap: 15px; } .hero, .services-section { padding: 30px 20px; } .hero h1 { font-size: 32px; } .services-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body data-theme="dark">
+
+<header>
+    <div class="logo">Unknown Coder</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle" id="globalThemeToggle"><i class="fas fa-moon"></i></button>
+        <a href="contact.html" class="download-cv">Book A Call</a>
+    </nav>
+</header>
+
+<section class="hero" data-aos="fade-up">
+    <div class="hero-badge">WHAT I DO</div>
+    <h1>My <span>Services</span></h1>
+    <p id="typewriterServices"></p>
+</section>
+
+<section class="services-section">
+    <div class="services-grid">
+        <div class="service-card" data-aos="fade-up"><div class="service-icon">☕</div><h3>Java Backend Development</h3><p>Building secure, scalable and high-performance backend applications using Java and Spring Boot ecosystem.</p><ul class="service-features"><li><i class="fas fa-check-circle"></i> Spring Boot & Spring MVC</li><li><i class="fas fa-check-circle"></i> Hibernate & JPA</li><li><i class="fas fa-check-circle"></i> Microservices Architecture</li><li><i class="fas fa-check-circle"></i> Security & Authentication (JWT)</li></ul></div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100"><div class="service-icon">🎨</div><h3>Frontend Development</h3><p>Creating responsive, interactive and modern user interfaces with the latest frontend technologies.</p><ul class="service-features"><li><i class="fas fa-check-circle"></i> HTML5, CSS3, JavaScript</li><li><i class="fas fa-check-circle"></i> Responsive Web Design</li><li><i class="fas fa-check-circle"></i> Bootstrap & Tailwind CSS</li><li><i class="fas fa-check-circle"></i> Interactive UI Components</li></ul></div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200"><div class="service-icon">🔗</div><h3>REST API Development</h3><p>Designing and developing robust RESTful APIs for seamless communication between frontend and backend.</p><ul class="service-features"><li><i class="fas fa-check-circle"></i> RESTful API Design</li><li><i class="fas fa-check-circle"></i> API Documentation (Swagger)</li><li><i class="fas fa-check-circle"></i> Request Validation & Error Handling</li><li><i class="fas fa-check-circle"></i> API Versioning & Security</li></ul></div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300"><div class="service-icon">🗄️</div><h3>Database Management</h3><p>Efficient database design, optimization and management for reliable data storage and retrieval.</p><ul class="service-features"><li><i class="fas fa-check-circle"></i> MySQL & PostgreSQL</li><li><i class="fas fa-check-circle"></i> Database Design & Normalization</li><li><i class="fas fa-check-circle"></i> Query Optimization</li><li><i class="fas fa-check-circle"></i> Data Migration & Backup</li></ul></div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400"><div class="service-icon">🔄</div><h3>FullStack Integration</h3><p>Seamless integration of frontend and backend components to create complete web applications.</p><ul class="service-features"><li><i class="fas fa-check-circle"></i> End-to-End Development</li><li><i class="fas fa-check-circle"></i> API Integration</li><li><i class="fas fa-check-circle"></i> State Management</li><li><i class="fas fa-check-circle"></i> Deployment & Hosting</li></ul></div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500"><div class="service-icon">💡</div><h3>Code Review & Mentoring</h3><p>Expert code review, optimization guidance and mentoring for developer teams.</p><ul class="service-features"><li><i class="fas fa-check-circle"></i> Code Quality Assessment</li><li><i class="fas fa-check-circle"></i> Performance Optimization</li><li><i class="fas fa-check-circle"></i> Best Practices Implementation</li><li><i class="fas fa-check-circle"></i> Team Mentoring</li></ul></div>
+    </div>
+    <div class="cta-section" data-aos="fade-up"><h3>Have a project in mind?</h3><p>Let's work together and build something amazing with Java FullStack.</p><a href="contact.html" class="cta-btn">Let's Talk →</a></div>
+</section>
+
+<footer><div class="footer-links"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="skills.html">Skills</a> | <a href="projects.html">Projects</a> | <a href="services.html">Services</a> | <a href="contact.html">Contact</a></div><p>Unknown Coder. © 2026 Om Yadav. All rights reserved.</p></footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('globalThemeToggle');
+    const savedTheme = localStorage.getItem('globalTheme') || 'dark';
+    if (savedTheme === 'light') { root.setAttribute('data-theme', 'light'); themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; }
+    else { root.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; }
+    themeBtn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        if (current === 'light') { root.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; localStorage.setItem('globalTheme', 'dark'); }
+        else { root.setAttribute('data-theme', 'light'); themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; localStorage.setItem('globalTheme', 'light'); }
+    });
+
+    const strings = ["As a Java FullStack Developer, I provide end-to-end web solutions.", "Spring Boot Expert ➔ Building secure & high-frequency microservices.", "Database Architecture ➔ Performance tuning & complex queries handling.", "Problem Solver ➔ Scalable logic structured for production grade apps."];
+    let sIdx = 0, cIdx = 0, deleting = false;
+    const target = document.getElementById('typewriterServices');
+    function runTypewriter() {
+        const full = strings[sIdx];
+        if (deleting) { target.innerHTML = full.substring(0, cIdx - 1) + '<span class="typewriter-cursor"></span>'; cIdx--; }
+        else { target.innerHTML = full.substring(0, cIdx + 1) + '<span class="typewriter-cursor"></span>'; cIdx++; }
+        let speed = deleting ? 30 : 60;
+        if (!deleting && cIdx === full.length) { speed = 2500; deleting = true; }
+        else if (deleting && cIdx === 0) { deleting = false; sIdx = (sIdx + 1) % strings.length; speed = 400; }
+        setTimeout(runTypewriter, speed);
+    }
+    AOS.init({ duration: 800, once: true, offset: 100 });
+    setTimeout(runTypewriter, 500);
+</script>
+</body>
+</html>

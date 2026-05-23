@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Unknown Coder| My Skills - Om Yadav</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0a0a0a 0%, #0a0a2a 100%);
+            --header-bg: rgba(10, 10, 10, 0.95);
+            --text-main: #ffffff;
+            --text-muted: #bbb;
+            --text-subtle: #666;
+            --box-bg: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-hover: rgba(0, 229, 255, 0.08);
+            --border-color: rgba(0, 229, 255, 0.15);
+            --border-card: rgba(0, 229, 255, 0.1);
+            --primary-glow: linear-gradient(135deg, #00e5ff, #00ff88);
+            --accent-color: #00e5ff;
+            --bar-bg: #1a1a3a;
+            --modal-bg: rgba(15, 15, 30, 0.95);
+        }
+        [data-theme="light"] {
+            --bg-gradient: linear-gradient(135deg, #f4f7f6 0%, #e2e8f0 100%);
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #1a202c;
+            --text-muted: #4a5568;
+            --text-subtle: #a0aec0;
+            --box-bg: rgba(0, 0, 0, 0.03);
+            --card-bg: rgba(0, 0, 0, 0.01);
+            --card-hover: rgba(0, 180, 216, 0.08);
+            --border-color: rgba(0, 180, 216, 0.2);
+            --border-card: rgba(0, 180, 216, 0.1);
+            --primary-glow: linear-gradient(135deg, #00b4d8, #00f5d4);
+            --accent-color: #00b4d8;
+            --bar-bg: #edf2f7;
+            --modal-bg: rgba(255, 255, 255, 0.98);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-gradient); color: var(--text-main); line-height: 1.6; transition: background 0.5s, color 0.5s; overflow-x: hidden; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; background: var(--header-bg); backdrop-filter: blur(10px); z-index: 100; transition: background 0.5s, border-color 0.5s; }
+        .logo { font-size: 28px; font-weight: bold; background: var(--primary-glow); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        nav { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+        nav a { color: var(--text-main); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: var(--accent-color); }
+        .theme-toggle { background: var(--box-bg); border: 1px solid var(--border-card); color: var(--text-main); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .theme-toggle:hover { border-color: var(--accent-color); color: var(--accent-color); transform: scale(1.05); }
+        .download-cv { background: var(--primary-glow); color: #000 !important; padding: 8px 20px; border-radius: 25px; font-weight: bold; cursor: pointer; transition: transform 0.3s; }
+        .download-cv:hover { transform: translateY(-3px); box-shadow: 0 0 15px rgba(0, 229, 255, 0.6); }
+        .hero { padding: 60px 50px 40px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .hero-badge { display: inline-block; background: rgba(0, 229, 255, 0.15); padding: 8px 20px; border-radius: 30px; font-size: 12px; color: var(--accent-color); letter-spacing: 1px; margin-bottom: 25px; }
+        .hero h1 { font-size: 48px; margin-bottom: 10px; }
+        .hero h1 span { background: var(--primary-glow); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .typing-container { font-size: 20px; font-weight: 500; color: var(--accent-color); margin-bottom: 20px; height: 35px; }
+        .typed-cursor { display: inline-block; width: 3px; background-color: var(--accent-color); margin-left: 4px; animation: blink 0.8s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .hero p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+        .skills-main { padding: 20px 50px 60px; max-width: 1200px; margin: 0 auto; }
+        .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .skills-box { background: var(--box-bg); backdrop-filter: blur(5px); border-radius: 20px; padding: 30px; border: 1px solid var(--border-color); transition: background 0.5s, border-color 0.5s; }
+        .skills-box h3 { font-size: 24px; margin-bottom: 25px; color: var(--accent-color); border-left: 3px solid var(--accent-color); padding-left: 15px; }
+        .skill-item { margin-bottom: 20px; }
+        .skill-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .skill-name { font-weight: 500; color: var(--text-main); }
+        .skill-percent { color: var(--accent-color); }
+        .skill-bar { height: 8px; background-color: var(--bar-bg); border-radius: 10px; overflow: hidden; }
+        .skill-fill { height: 100%; background: var(--primary-glow); border-radius: 10px; width: 0%; transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1); }
+        .professional-skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .professional-card { background: var(--card-bg); border-radius: 15px; padding: 20px 15px; text-align: center; cursor: pointer; transition: transform 0.3s, background 0.3s, border-color 0.3s; border: 1px solid var(--border-card); }
+        .professional-card:hover { transform: translateY(-5px); background: var(--card-hover); border-color: var(--accent-color); }
+        .professional-icon { font-size: 35px; margin-bottom: 12px; }
+        .professional-card h4 { font-size: 17px; margin-bottom: 8px; color: var(--accent-color); }
+        .professional-card p { color: var(--text-muted); font-size: 12px; }
+        .stats-row { margin-top: 50px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; text-align: center; }
+        .stat-box { background: var(--box-bg); padding: 25px; border-radius: 15px; transition: transform 0.3s, border-color 0.3s; border: 1px solid var(--border-card); }
+        .stat-box:hover { transform: translateY(-5px); border-color: var(--accent-color); }
+        .stat-number { font-size: 40px; font-weight: bold; background: var(--primary-glow); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .stat-text { color: var(--text-muted); font-size: 13px; margin-top: 8px; }
+        .preview-trigger-container { margin-top: 40px; text-align: center; }
+        .btn-preview { background: transparent; border: 2px solid var(--accent-color); color: var(--text-main); padding: 12px 30px; font-size: 16px; font-weight: bold; border-radius: 30px; cursor: pointer; transition: all 0.3s; }
+        .btn-preview:hover { background: var(--primary-glow); color: #000; transform: translateY(-2px); }
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+        .modal.active { opacity: 1; pointer-events: auto; }
+        .modal-content { background: var(--modal-bg); border: 1px solid var(--border-color); padding: 40px; border-radius: 20px; max-width: 550px; width: 90%; text-align: center; position: relative; transform: scale(0.8); transition: transform 0.4s; }
+        .modal.active .modal-content { transform: scale(1); }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: var(--text-muted); }
+        .close-modal:hover { color: var(--accent-color); }
+        .modal-icon { font-size: 50px; margin-bottom: 20px; }
+        .modal h3 { margin-bottom: 15px; color: var(--accent-color); font-size: 24px; }
+        .quote-section { margin-top: 50px; padding: 40px; background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(0, 255, 136, 0.03)); border-radius: 20px; text-align: center; border: 1px solid var(--border-color); }
+        .quote-section p { font-size: 18px; color: var(--text-main); font-style: italic; }
+        .quote-section i { color: var(--accent-color); margin: 0 10px; }
+        footer { padding: 40px 50px; text-align: center; border-top: 1px solid var(--border-color); background: var(--header-bg); margin-top: 40px; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
+        .footer-links a:hover { color: var(--accent-color); }
+        footer p { color: var(--text-subtle); font-size: 14px; }
+        @media (max-width: 991px) { .skills-container { grid-template-columns: 1fr; gap: 30px; } }
+        @media (max-width: 768px) { header { padding: 15px 20px; flex-direction: column; gap: 15px; } nav { gap: 15px; } .hero, .skills-main { padding: 30px 20px; } .hero h1 { font-size: 32px; } .professional-skills { grid-template-columns: 1fr; } .stats-row { grid-template-columns: repeat(2, 1fr); gap: 15px; } }
+        @media (max-width: 480px) { .stats-row { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body data-theme="dark">
+
+<header>
+    <div class="logo">Unknown Coder</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html" class="active">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle" id="globalThemeToggle"><i class="fas fa-moon"></i></button>
+        <a href="contact.html" class="download-cv">Book A Call</a>
+    </nav>
+</header>
+
+<section class="hero" data-aos="fade-up">
+    <div class="hero-badge">MY EXPERTISE</div>
+    <h1>My <span>Skills</span></h1>
+    <div class="typing-container">I am a <span id="typewriter"></span><span class="typed-cursor">|</span></div>
+    <p>Here are the technologies I work with to build modern, highly optimized, and responsive web applications.</p>
+</section>
+
+<section class="skills-main">
+    <div class="skills-container">
+        <div class="skills-box" data-aos="fade-right">
+            <h3>Technical Skills</h3>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML</span><span class="skill-percent">95%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">CSS</span><span class="skill-percent">95%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">JavaScript</span><span class="skill-percent">90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Bootstrap</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Java</span><span class="skill-percent">90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Spring Boot</span><span class="skill-percent">95%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Hibernate</span><span class="skill-percent">90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">MySQL</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Git & GitHub</span><span class="skill-percent">90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">REST APIs</span><span class="skill-percent">90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div></div>
+        </div>
+        <div class="skills-box" data-aos="fade-left">
+            <h3>Professional Skills</h3>
+            <div class="professional-skills">
+                <div class="professional-card" onclick="openSkillModal('🎨', 'UI/UX Design Architecture', 'Advanced layout blueprints through Figma into responsive components.')"><div class="professional-icon">🎨</div><h4>UI/UX Design</h4><p>Designing intuitive interfaces</p></div>
+                <div class="professional-card" onclick="openSkillModal('📱', 'Responsive Fluidity', 'CSS Grid, Flexbox engines, and container queries for perfect mobile layouts.')"><div class="professional-icon">📱</div><h4>Responsive Design</h4><p>Websites that work on all devices</p></div>
+                <div class="professional-card" onclick="openSkillModal('🧩', 'Data Structures & Algorithms', 'Optimized enterprise algorithms reducing time complexity.')"><div class="professional-icon">🧩</div><h4>Problem Solving</h4><p>Efficient solutions to complex problems</p></div>
+                <div class="professional-card" onclick="openSkillModal('✨', 'SOLID Programming', 'Design patterns based on SOLID principles. Decoupled code structures.')"><div class="professional-icon">✨</div><h4>Clean Code</h4><p>Maintainable and scalable code</p></div>
+                <div class="professional-card" onclick="openSkillModal('💬', 'Cross-functional Collaboration', 'Agile methodologies, converting requirements into technical backlogs.')"><div class="professional-icon">💬</div><h4>Communication</h4><p>Effective team collaboration</p></div>
+                <div class="professional-card" onclick="openSkillModal('👥', 'Distributed Version Controls', 'Git branch optimization, CI/CD pipelines, peer-review workflows.')"><div class="professional-icon">👥</div><h4>Team Work</h4><p>Efficient team environments</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="stats-row" data-aos="fade-up">
+        <div class="stat-box"><div class="stat-number">1+</div><div class="stat-text">Years Experience</div></div>
+        <div class="stat-box"><div class="stat-number">25+</div><div class="stat-text">Projects Completed</div></div>
+        <div class="stat-box"><div class="stat-number">15+</div><div class="stat-text">Happy Clients</div></div>
+        <div class="stat-box"><div class="stat-number">8+</div><div class="stat-text">Technologies Mastered</div></div>
+    </div>
+    <div class="preview-trigger-container" data-aos="fade-up"><button class="btn-preview" id="triggerLivePreview">Launch Live Previews Dashboard</button></div>
+    <div class="quote-section" data-aos="fade-up"><p><i class="fas fa-quote-left"></i> I write clean, maintainable and scalable code. I focus on modern, attractive and user-friendly designs. <i class="fas fa-quote-right"></i></p></div>
+</section>
+
+<div class="modal" id="dynamicModal"><div class="modal-content"><span class="close-modal" id="closeModal">&times;</span><div class="modal-icon" id="modalIcon">🚀</div><h3 id="modalTitle">Preview</h3><p id="modalDescription">Loading...</p><button class="download-cv" style="border:none; background:var(--primary-glow); color:#000; padding:10px 25px; border-radius:30px; cursor:pointer;" id="modalActionBtn">Explore Work</button></div></div>
+
+<footer><div class="footer-links"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="skills.html">Skills</a> | <a href="projects.html">Projects</a> | <a href="services.html">Services</a> | <a href="contact.html">Contact</a></div><p>Unknown Coder. © 2024 Om Yadav. All rights reserved.</p></footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('globalThemeToggle');
+    const savedTheme = localStorage.getItem('globalTheme') || 'dark';
+    if (savedTheme === 'light') { root.setAttribute('data-theme', 'light'); themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; }
+    else { root.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; }
+    themeBtn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        if (current === 'light') { root.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; localStorage.setItem('globalTheme', 'dark'); }
+        else { root.setAttribute('data-theme', 'light'); themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; localStorage.setItem('globalTheme', 'light'); }
+    });
+
+    const strings = ["Java FullStack Developer.", "Spring Boot Expert.", "Problem Solver.", "API Engineer."];
+    let wIdx = 0, cIdx = 0, deleting = false;
+    const typeTarget = document.getElementById('typewriter');
+    function runTypewriter() {
+        const curr = strings[wIdx];
+        if (deleting) cIdx--; else cIdx++;
+        typeTarget.textContent = curr.substring(0, cIdx);
+        let speed = deleting ? 40 : 80;
+        if (!deleting && cIdx === curr.length) { speed = 1500; deleting = true; }
+        else if (deleting && cIdx === 0) { deleting = false; wIdx = (wIdx + 1) % strings.length; speed = 400; }
+        setTimeout(runTypewriter, speed);
+    }
+    AOS.init({ duration: 800, once: true, offset: 100 });
+    setTimeout(runTypewriter, 600);
+
+    const modal = document.getElementById('dynamicModal');
+    const closeModal = document.getElementById('closeModal');
+    window.openSkillModal = (icon, title, desc) => { document.getElementById('modalIcon').textContent = icon; document.getElementById('modalTitle').textContent = title; document.getElementById('modalDescription').textContent = desc; modal.classList.add('active'); };
+    closeModal.addEventListener('click', () => modal.classList.remove('active'));
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+    document.getElementById('triggerLivePreview').addEventListener('click', () => openSkillModal('🚀', 'Project Matrix Dashboard', 'Dynamic deployment node tracking active microservices. Java Spring Boot architecture.'));
+    document.querySelectorAll('.skill-fill').forEach(bar => { const w = bar.getAttribute('data-width'); if (w) setTimeout(() => bar.style.width = w, 300); });
+</script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Unknown Coder | My Projects - Om Yadav</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0a0a0a 0%, #0a0a2a 100%);
+            --bg-color: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-color: #ffffff;
+            --text-muted: #aaa;
+            --border-color: rgba(0, 229, 255, 0.1);
+            --header-bg: rgba(10, 10, 10, 0.95);
+            --gradient-accent: linear-gradient(135deg, #00e5ff, #00ff88);
+            --primary-accent: #00e5ff;
+            --modal-bg: rgba(15, 15, 30, 0.95);
+        }
+        [data-theme="light"] {
+            --bg-gradient: linear-gradient(135deg, #f4f7f6 0%, #e2e8f0 100%);
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #1a1a1a;
+            --text-muted: #555;
+            --border-color: rgba(0, 180, 216, 0.2);
+            --header-bg: rgba(244, 246, 249, 0.95);
+            --primary-accent: #00b4d8;
+            --modal-bg: rgba(255, 255, 255, 0.98);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-gradient); color: var(--text-color); line-height: 1.6; transition: background 0.5s, color 0.3s; overflow-x: hidden; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; position: sticky; top: 0; background: var(--header-bg); backdrop-filter: blur(10px); z-index: 100; }
+        .logo { font-size: 28px; font-weight: bold; background: var(--gradient-accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        nav { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+        nav a { color: var(--text-color); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: var(--primary-accent); }
+        .theme-toggle { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-color); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .theme-toggle:hover { border-color: var(--primary-accent); color: var(--primary-accent); transform: scale(1.05); }
+        .download-cv { background: var(--gradient-accent); color: #000 !important; padding: 8px 20px; border-radius: 25px; font-weight: bold; transition: transform 0.3s; }
+        .download-cv:hover { transform: translateY(-3px); box-shadow: 0 0 15px rgba(0,229,255,0.6); }
+        .hero { padding: 60px 50px 40px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .hero-badge { display: inline-block; background: rgba(0, 229, 255, 0.15); padding: 8px 20px; border-radius: 30px; font-size: 12px; color: var(--primary-accent); letter-spacing: 1px; margin-bottom: 30px; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero h1 span { background: var(--gradient-accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero p { color: var(--text-muted); max-width: 600px; margin: 0 auto; min-height: 30px; }
+        .typewriter-cursor { display: inline-block; width: 3px; background-color: var(--primary-accent); margin-left: 4px; animation: blink 0.8s infinite; }
+        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+        .projects-section { padding: 20px 50px 60px; max-width: 1200px; margin: 0 auto; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .project-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; transition: transform 0.4s, border-color 0.3s; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--primary-accent); box-shadow: 0 15px 30px rgba(0,229,255,0.15); }
+        .project-header { background: linear-gradient(135deg, rgba(0,229,255,0.1), rgba(0,255,136,0.05)); padding: 30px 25px; text-align: center; }
+        .project-icon { font-size: 50px; margin-bottom: 15px; }
+        .project-header h3 { font-size: 24px; margin-bottom: 5px; }
+        .project-category { color: var(--primary-accent); font-size: 12px; letter-spacing: 1px; }
+        .project-body { padding: 25px; }
+        .project-body p { color: var(--text-muted); margin-bottom: 20px; }
+        .project-features { list-style: none; margin-bottom: 25px; }
+        .project-features li { color: var(--text-muted); font-size: 13px; padding: 5px 0; display: flex; align-items: center; gap: 10px; }
+        .project-features li i { color: var(--primary-accent); font-size: 10px; }
+         .liquid-btn {
+            position: relative;
+            padding: 14px 36px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            background: rgba(0, 229, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 229, 255, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .liquid-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00e5ff, #00ff88);
+            z-index: -1;
+            transition: 0.5s;
+            border-radius: 30px;
+        }
+        .liquid-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 140%;
+            height: 280%;
+            background: #020208;
+            border-radius: 42% 38% 44% 40%;
+            transform: translate(-50%, -115%) rotate(0deg);
+            transition: transform 0.8s ease;
+            z-index: -1;
+        }
+        [data-theme="light"] .liquid-btn::after { background: #f0f4f8; }
+        .liquid-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.45);
+            color: #05050f;
+        }
+        .liquid-btn:hover::after { transform: translate(-50%, -50%) rotate(360deg); background: transparent; }
+        .liquid-btn-outline {
+            background: transparent;
+            border: 2px solid #00e5ff;
+            color: #00e5ff;
+        }
+        .liquid-btn-outline::before { opacity: 0; }
+        .liquid-btn-outline:hover { color: #05050f; border-color: transparent; }
+        .liquid-btn-outline:hover::before { opacity: 1; }.cta-section { margin-top: 60px; padding: 50px; background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(0,255,136,0.03)); border-radius: 20px; text-align: center; border: 1px solid var(--border-color); }
+        .cta-section h3 { font-size: 28px; margin-bottom: 15px; }
+        .cta-btn { background: var(--gradient-accent); padding: 12px 35px; border-radius: 30px; text-decoration: none; color: #000; font-weight: bold; display: inline-block; transition: transform 0.3s; }
+        .cta-btn:hover { transform: translateY(-3px); }
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+        .modal.open { opacity: 1; pointer-events: auto; }
+        .modal-content { background: var(--modal-bg); border: 2px solid var(--primary-accent); border-radius: 20px; width: 90%; max-width: 600px; padding: 30px; position: relative; transform: scale(0.7); transition: transform 0.4s; }
+        .modal.open .modal-content { transform: scale(1); }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 28px; color: var(--text-muted); cursor: pointer; }
+        .close-modal:hover { color: var(--primary-accent); }
+        .modal-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
+        .modal-tech-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .tech-badge { background: rgba(0,229,255,0.1); border: 1px solid var(--primary-accent); padding: 4px 12px; border-radius: 15px; font-size: 12px; color: var(--primary-accent); }
+        footer { padding: 40px 50px; text-align: center; border-top: 1px solid var(--border-color); background: var(--header-bg); margin-top: 40px; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--primary-accent); }
+        footer p { color: #666; font-size: 12px; }
+        @media (max-width: 768px) { header { padding: 15px 20px; flex-direction: column; gap: 15px; } nav { gap: 15px; } .hero, .projects-section { padding: 30px 20px; } .hero h1 { font-size: 32px; } .projects-grid { grid-template-columns: 1fr; } }
+    .project-image img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    display: block;
+}
+
+.project-link{
+    display: inline-block;
+    margin-top: 15px;
+    color: #00e5ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.project-link:hover{
+    color: #00ff88;
+    transform: translateX(5px);
+}
+</style>
+</head>
+<body data-theme="dark">
+
+<header>
+    <div class="logo">Unknown Coder</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle" id="globalThemeToggle"><i class="fas fa-moon"></i></button>
+        <a href="contact.html" class="download-cv">Book A Call</a>
+    </nav>
+</header>
+
+<section class="hero" data-aos="fade-up">
+    <div class="hero-badge">MY WORK</div>
+    <h1>My <span>Projects</span></h1>
+    <p id="typewriterText"></p>
+</section>
+
+<section class="projects-section">
+
+    <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card">
+
+            <!-- PROJECT IMAGE -->
+            <div class="project-image">
+                <img src="images/learning.png" alt="Saraswati Classes">
+            </div>
+
+            <div class="project-body">
+                <p>
+                    <h3>Saraswati Classes Management</h3>
+                    <div class="project-category">Full Stack Web App</div>
+                    Modern coaching management ecosystem handling 
+                    multi-role dashboards, automated notice boards, 
+                    and student admissions.
+                </p>
+
+                <ul class="project-features">
+                    <li><i class="fas fa-circle"></i> Student & Admin Dashboard</li>
+                    <li><i class="fas fa-circle"></i> Course & Fee Management</li>
+                    <li><i class="fas fa-circle"></i> Notice Board & Gallery</li>
+                </ul>
+
+                <!-- GITHUB LINK -->
+                <a href="https://github.com/omyadav-java/saraswati-classes-management-system" 
+                   target="_blank" 
+                   class="liquid-btn liquid-btn-outline">
+                   View GitHub →
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Project 2 -->
+        <div class="project-card">
+
+            <div class="project-image">
+                <img src="images/nural.jpg" alt="NeuralFace AI">
+            </div>
+
+            <div class="project-body">
+                <p>
+                       <h3>NeuralFace AI</h3>
+                <div class="project-category">AI / Computer Vision</div>
+                    Deep learning computer vision application for 
+                    real-time age, gender, and emotion detection.
+                </p>
+
+                <ul class="project-features">
+                    <li><i class="fas fa-circle"></i> Real-time face detection</li>
+                    <li><i class="fas fa-circle"></i> Age & Gender prediction</li>
+                    <li><i class="fas fa-circle"></i> Emotion recognition</li>
+                </ul>
+
+                <a href="https://github.com/yourusername/project2" 
+                   target="_blank" 
+                   class="liquid-btn liquid-btn-outline">
+                   View GitHub →
+                </a>
+            </div>
+        </div>
+ 
+
+        <!-- Project 3 -->
+        <div class="project-card">
+
+            <div class="project-image">
+                <img src="images/auto-parts-inventory-management-dashboard.webp" alt="Garage Management">
+            </div>
+
+            <div class="project-body">
+                <p>
+                     <h3>Garage Management System</h3>
+                <div class="project-category">Full Stack Web App</div>
+                    Complete garage service management system for 
+                    vehicle tracking, service billing, and inventory.
+                </p>
+
+                <ul class="project-features">
+                    <li><i class="fas fa-circle"></i> Vehicle Records</li>
+                    <li><i class="fas fa-circle"></i> Billing System</li>
+                    <li><i class="fas fa-circle"></i> Staff Management</li>
+                </ul>
+
+                <a href="https://github.com/omyadav-java/garage-management-system" 
+                   target="_blank" 
+                   class="liquid-btn liquid-btn-outline">
+                   View GitHub →
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+
+            <div class="project-image">
+                <img src="images/Velvet Brew.png" alt="Garage Management">
+            </div>
+
+            <div class="project-body">
+                <p>
+                     <h3>VELVET BREW ☕ Coffee Shop</h3>
+                <div class="project-category">Full Stack Web App</div>
+                    VELVET BREW is a luxury coffee shop reservation web application.
+                </p>
+
+                <ul class="project-features">
+                    <li><i class="fas fa-circle"></i> Table reservation / table booking</li>
+                    <li><i class="fas fa-circle"></i> Choose number of guests</li>
+                    <li><i class="fas fa-circle"></i> Modern luxury coffee shop UI</li>
+                </ul>
+
+                <a href="https://github.com/omyadav-java/velvetbrew-backend/tree/main" 
+                   target="_blank" 
+                   class="liquid-btn liquid-btn-outline">
+                   View GitHub →
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="modal" id="projectModal"><div class="modal-content"><span class="close-modal" id="closeModal">&times;</span><div class="modal-header"><div class="project-icon" id="modalIcon">📊</div><div><h3 id="modalTitle">Project Title</h3><span class="project-category">Tech Stack Preview</span></div></div><p id="modalDesc"></p><div class="modal-tech-stack" id="modalTech"></div></div></div>
+
+<footer><div class="footer-links"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="skills.html">Skills</a> | <a href="projects.html">Projects</a> | <a href="services.html">Services</a> | <a href="contact.html">Contact</a></div><p>Unknown Coder. © 2026 Om Yadav. All rights reserved.</p></footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('globalThemeToggle');
+    const savedTheme = localStorage.getItem('globalTheme') || 'dark';
+    if (savedTheme === 'light') { root.setAttribute('data-theme', 'light'); themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; }
+    else { root.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; }
+    themeBtn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        if (current === 'light') { root.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; localStorage.setItem('globalTheme', 'dark'); }
+        else { root.setAttribute('data-theme', 'light'); themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; localStorage.setItem('globalTheme', 'light'); }
+    });
+
+    const words = ["Here are some of my recent projects.", "Each project is unique and built with passion.", "Built with clean architecture & modern web tech."];
+    let wIdx = 0, cIdx = 0, del = false;
+    const target = document.getElementById('typewriterText');
+    function typeEffect() {
+        const curr = words[wIdx];
+        if (del) { target.innerHTML = curr.substring(0, cIdx - 1) + '<span class="typewriter-cursor"></span>'; cIdx--; }
+        else { target.innerHTML = curr.substring(0, cIdx + 1) + '<span class="typewriter-cursor"></span>'; cIdx++; }
+        let speed = del ? 30 : 60;
+        if (!del && cIdx === curr.length) { speed = 2000; del = true; }
+        else if (del && cIdx === 0) { del = false; wIdx = (wIdx + 1) % words.length; speed = 500; }
+        setTimeout(typeEffect, speed);
+    }
+    AOS.init({ duration: 800, once: true, offset: 100 });
+    setTimeout(typeEffect, 500);
+
+    const modal = document.getElementById('projectModal');
+    const closeModal = document.getElementById('closeModal');
+    document.querySelectorAll('.open-popup').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.project-card');
+            document.getElementById('modalTitle').innerText = card.getAttribute('data-project');
+            document.getElementById('modalDesc').innerText = card.getAttribute('data-desc');
+            document.getElementById('modalIcon').innerText = card.querySelector('.project-icon').innerText;
+            const techs = card.getAttribute('data-tech').split(',');
+            const techContainer = document.getElementById('modalTech');
+            techContainer.innerHTML = '';
+            techs.forEach(t => { const span = document.createElement('span'); span.className = 'tech-badge'; span.innerText = t.trim(); techContainer.appendChild(span); });
+            modal.classList.add('open');
+        });
+    });
+    closeModal.addEventListener('click', () => modal.classList.remove('open'));
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
+</script>
+</body>
+</html>

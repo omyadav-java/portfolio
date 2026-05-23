@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Unknown Coder | About Me - Om Yadav</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0a0a0a 0%, #0a0a2a 100%);
+            --header-bg: rgba(10, 10, 10, 0.95);
+            --text-main: #ffffff;
+            --text-muted: #bbb;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(0, 229, 255, 0.2);
+            --stat-bg: linear-gradient(135deg, #0a0a1a 0%, #0a0a2a 100%);
+        }
+
+        [data-theme="light"] {
+            --bg-gradient: linear-gradient(135deg, #f4f7f6 0%, #e9eff1 100%);
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #1a1a2e;
+            --text-muted: #555566;
+            --card-bg: rgba(0, 0, 0, 0.04);
+            --border-color: rgba(0, 180, 216, 0.3);
+            --stat-bg: linear-gradient(135deg, #e9eff1 0%, #dbe7eb 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-gradient); color: var(--text-main); line-height: 1.6; transition: background 0.5s ease, color 0.5s ease; overflow-x: hidden; }
+
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; position: sticky; top: 0; background: var(--header-bg); backdrop-filter: blur(10px); z-index: 100; transition: background 0.5s, border 0.5s; }
+        .logo { font-size: 28px; font-weight: bold; background: linear-gradient(135deg, #00e5ff, #00ff88); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        nav { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+        nav a { color: var(--text-main); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: #00e5ff; }
+        .theme-toggle { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-main); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .theme-toggle:hover { border-color: #00e5ff; color: #00e5ff; transform: scale(1.05); }
+        .download-cv { background: linear-gradient(135deg, #00e5ff, #00ff88); color: #000 !important; padding: 8px 20px; border-radius: 25px; font-weight: bold; transition: transform 0.3s, box-shadow 0.3s; }
+        .download-cv:hover { transform: translateY(-3px); box-shadow: 0 0 15px rgba(0, 229, 255, 0.6); }
+
+        .hero { padding: 60px 8% 40px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .hero-badge { display: inline-block; background: rgba(0, 229, 255, 0.15); padding: 8px 20px; border-radius: 30px; font-size: 12px; color: #00e5ff; letter-spacing: 1px; margin-bottom: 30px; }
+        .hero h1 { font-size: 48px; margin-bottom: 10px; }
+        .hero h1 span { background: linear-gradient(135deg, #00e5ff, #00ff88); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .typewriter-container { font-size: 22px; font-weight: 500; color: #00ff88; height: 45px; margin-bottom: 20px; }
+        .cursor { display: inline-block; width: 3px; background-color: #00ff88; margin-left: 4px; animation: blink 0.8s infinite; }
+        @keyframes blink { 50% { background-color: transparent; } }
+
+        .about-main { padding: 20px 8% 60px; max-width: 1200px; margin: 0 auto; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .about-text h2 { font-size: 36px; margin-bottom: 20px; background: linear-gradient(135deg, #00e5ff, #00ff88); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .about-text h3 { font-size: 22px; margin: 25px 0 15px; color: #00e5ff; }
+        .about-text p { color: var(--text-muted); margin-bottom: 20px; line-height: 1.8; }
+        .info-card { background: var(--card-bg); backdrop-filter: blur(5px); border-radius: 15px; padding: 20px; margin: 25px 0; border: 1px solid var(--border-color); }
+        .info-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { color: var(--text-muted); }
+        .info-value { color: #00e5ff; font-weight: 500; }
+        .badge-group { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+        .badge { background: rgba(0, 229, 255, 0.1); padding: 6px 15px; border-radius: 20px; font-size: 13px; color: #00e5ff; }
+        .btn-group { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+        .btn-primary { background: linear-gradient(135deg, #00e5ff, #00ff88); padding: 12px 28px; border-radius: 30px; text-decoration: none; color: #000; font-weight: bold; display: inline-block; transition: transform 0.3s; }
+        .btn-outline { border: 1px solid #00e5ff; padding: 12px 28px; border-radius: 30px; text-decoration: none; color: #00e5ff; font-weight: bold; display: inline-block; transition: transform 0.3s; background: transparent; }
+        .btn-primary:hover, .btn-outline:hover { transform: translateY(-3px); }
+        .right-section { display: flex; flex-direction: column; gap: 30px; }
+        .about-image { width: 100%; text-align: center; background: var(--card-bg); border-radius: 20px; padding: 20px; border: 1px solid var(--border-color); transition: transform 0.3s, border-color 0.3s; }
+        .about-image:hover { transform: translateY(-5px); border-color: #00e5ff; }
+        .about-image img { width: 100%; max-width: 350px; filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.3)); animation: floatImage 4s ease-in-out infinite; border-radius: 15px; }
+        @keyframes floatImage { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+        .qualities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .quality-card { background: var(--card-bg); backdrop-filter: blur(5px); border-radius: 15px; padding: 22px 18px; text-align: center; transition: transform 0.3s, border-color 0.3s; border: 1px solid var(--border-color); cursor: pointer; }
+        .quality-card:hover { transform: translateY(-5px); border-color: #00e5ff; background: rgba(0, 229, 255, 0.05); }
+        .quality-icon { font-size: 38px; margin-bottom: 12px; }
+        .quality-card h4 { font-size: 18px; margin-bottom: 8px; color: #00e5ff; }
+        .quality-card p { color: var(--text-muted); font-size: 12px; line-height: 1.5; }
+
+        .stats-section { padding: 60px 8%; background: var(--stat-bg); margin-top: 20px; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); transition: background 0.5s; }
+        .stats-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+        .stat-card { background: var(--card-bg); padding: 30px 20px; border-radius: 15px; transition: transform 0.3s; border: 1px solid var(--border-color); }
+        .stat-card:hover { transform: translateY(-5px); border-color: #00e5ff; }
+        .stat-number { font-size: 44px; font-weight: bold; background: linear-gradient(135deg, #00e5ff, #00ff88); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .stat-label { color: var(--text-muted); margin-top: 10px; font-size: 14px; }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s; z-index: 1000; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-box { background: var(--header-bg); border: 2px solid #00e5ff; box-shadow: 0 0 25px rgba(0, 229, 255, 0.3); width: 90%; max-width: 500px; padding: 30px; border-radius: 20px; text-align: center; transform: scale(0.8); transition: transform 0.4s; position: relative; }
+        .modal-overlay.active .modal-box { transform: scale(1); }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 22px; color: var(--text-muted); cursor: pointer; }
+        .close-modal:hover { color: #ff0055; }
+        .modal-box h3 { font-size: 24px; margin-bottom: 15px; background: linear-gradient(135deg, #00e5ff, #00ff88); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+        footer { padding: 40px 8%; text-align: center; border-top: 1px solid var(--border-color); background: var(--header-bg); transition: background 0.5s; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .footer-links a:hover { color: #00e5ff; }
+        footer p { color: #666; font-size: 14px; }
+
+        @media (max-width: 991px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } .right-section { order: -1; } }
+        @media (max-width: 768px) { header { padding: 15px 20px; flex-direction: column; gap: 15px; } nav { gap: 15px; } .hero, .about-main { padding: 30px 20px; } .hero h1 { font-size: 32px; } .stats-container { grid-template-columns: repeat(2, 1fr); gap: 15px; } }
+        @media (max-width: 480px) { .stats-container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body data-theme="dark">
+
+<header>
+    <div class="logo">Unknown Coder</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle" id="globalThemeToggle"><i class="fas fa-moon"></i></button>
+        <a href="contact.html" class="download-cv">Book A Call</a>
+    </nav>
+</header>
+
+<section class="hero" data-aos="fade-up">
+    <div class="hero-badge">GET TO KNOW ME</div>
+    <h1>Hello! I'm <span>Om Yadav</span></h1>
+    <div class="typewriter-container"><span id="typewriter"></span><span class="cursor"></span></div>
+</section>
+
+<section class="about-main">
+    <div class="about-grid">
+        <div class="about-text" data-aos="fade-right">
+            <h2>About Me</h2>
+            <p>I'm a passionate Java FullStack Developer who enjoys building modern, scalable, and user-friendly web applications using Java, Spring Boot, and modern frontend technologies.</p>
+            <p>I love solving complex problems with clean and efficient code, while creating responsive and visually appealing digital experiences that deliver high performance and great usability.</p>
+            <h3>Personal Info</h3>
+            <div class="info-card">
+                <div class="info-row"><span class="info-label">Name:</span><span class="info-value">Om Yadav</span></div>
+                <div class="info-row"><span class="info-label">Age:</span><span class="info-value">23</span></div>
+                <div class="info-row"><span class="info-label">Location:</span><span class="info-value">India</span></div>
+                <div class="info-row"><span class="info-label">Freelance:</span><span class="info-value">Available</span></div>
+            </div>
+            <div class="badge-group"><span class="badge">Fast Learner</span><span class="badge">Clean Code</span><span class="badge">Creative Design</span><span class="badge">Problem Solver</span></div>
+            <div class="btn-group"><a href="#" class="btn-primary">Download CV</a><a href="#" class="btn-outline" id="modal-trigger">View Stack Details</a></div>
+        </div>
+        <div class="right-section">
+            <div class="about-image" data-aos="zoom-in"><img src="images/99648009-1091-48c6-b760-817e0a5fac2f.png" alt="About Image"></div>
+            <div class="qualities-grid">
+                <div class="quality-card" onclick="openPreviewModal('Fast Learner', 'Continuous upskilling is my core trait. I track fresh framework releases instantly.')"><div class="quality-icon">🚀</div><h4>Fast Learner</h4><p>I love learning new technologies and staying updated.</p></div>
+                <div class="quality-card" onclick="openPreviewModal('Clean Code', 'I write modular, object-oriented Java code adhering strictly to SOLID principles.')"><div class="quality-icon">💻</div><h4>Clean Code</h4><p>I write clean, maintainable and scalable code.</p></div>
+                <div class="quality-card" onclick="openPreviewModal('Creative Design', 'UI isn’t just aesthetic; it’s experience. I balance smooth backend with neat frontend views.')"><div class="quality-icon">🎨</div><h4>Creative Design</h4><p>I focus on modern, attractive and user-friendly designs.</p></div>
+                <div class="quality-card" onclick="openPreviewModal('Problem Solver', 'Data structures and microservice debugging are my core comfort zones.')"><div class="quality-icon">🧩</div><h4>Problem Solver</h4><p>I enjoy solving problems and building efficient solutions.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stats-section">
+    <div class="stats-container">
+        <div class="stat-card"><div class="stat-number">1+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat-card"><div class="stat-number">25+</div><div class="stat-label">Projects Completed</div></div>
+        <div class="stat-card"><div class="stat-number">15+</div><div class="stat-label">Happy Clients</div></div>
+        <div class="stat-card"><div class="stat-number">8+</div><div class="stat-label">Technologies Mastered</div></div>
+    </div>
+</section>
+
+<div class="modal-overlay" id="preview-modal"><div class="modal-box"><span class="close-modal" id="modal-close">&times;</span><h3 id="modal-title">Preview</h3><p id="modal-desc">Loading...</p><button class="btn-primary" style="padding:8px 20px;" onclick="closePreviewModal()">Acknowledge</button></div></div>
+
+<footer><div class="footer-links"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="skills.html">Skills</a> | <a href="projects.html">Projects</a> | <a href="services.html">Services</a> | <a href="contact.html">Contact</a></div><p>Unknown Coder. © 2026 Om Yadav. All rights reserved.</p></footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('globalThemeToggle');
+    const savedTheme = localStorage.getItem('globalTheme') || 'dark';
+    if (savedTheme === 'light') { root.setAttribute('data-theme', 'light'); themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; }
+    else { root.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; }
+    themeBtn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        if (current === 'light') { root.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; localStorage.setItem('globalTheme', 'dark'); }
+        else { root.setAttribute('data-theme', 'light'); themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; localStorage.setItem('globalTheme', 'light'); }
+    });
+
+    const words = ["Java FullStack Developer", "Spring Boot Expert", "Backend Engineer", "Problem Solver"];
+    let wIdx = 0, cIdx = 0, deleting = false;
+    const txtEl = document.getElementById("typewriter");
+    function typeEffect() {
+        const curr = words[wIdx];
+        if (deleting) { txtEl.textContent = curr.substring(0, cIdx - 1); cIdx--; }
+        else { txtEl.textContent = curr.substring(0, cIdx + 1); cIdx++; }
+        let speed = deleting ? 40 : 100;
+        if (!deleting && cIdx === curr.length) { speed = 1500; deleting = true; }
+        else if (deleting && cIdx === 0) { deleting = false; wIdx = (wIdx + 1) % words.length; speed = 400; }
+        setTimeout(typeEffect, speed);
+    }
+    AOS.init({ duration: 800, once: true, offset: 100 });
+    setTimeout(typeEffect, 500);
+
+    const modal = document.getElementById("preview-modal");
+    const modalClose = document.getElementById("modal-close");
+    window.openPreviewModal = (title, text) => { document.getElementById("modal-title").textContent = title; document.getElementById("modal-desc").textContent = text; modal.classList.add("active"); };
+    window.closePreviewModal = () => modal.classList.remove("active");
+    modalClose.addEventListener("click", closePreviewModal);
+    window.addEventListener("click", (e) => { if (e.target === modal) closePreviewModal(); });
+    document.getElementById("modal-trigger")?.addEventListener("click", (e) => { e.preventDefault(); openPreviewModal("Unknown Coder Core Architecture Stack", "Spring Boot 3.x backend with Spring Data JPA and componentized semantic client interfaces."); });
+</script>
+</body>
+</html>
